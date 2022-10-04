@@ -1,18 +1,18 @@
 ---
 # Required: specify name of tower deployment to backup from
-deployment_name: ''
-kind: 'AWXBackup'
-api_version: '{{ deployment_type }}.ansible.com/v1beta1'
+deployment_name: ""
+kind: "AWXBackup"
+api_version: "{{ deployment_type }}.ansible.com/v1beta1"
 
 # Specify a pre-created PVC (name) to backup to
-backup_pvc: ''
+backup_pvc: ""
 backup_pvc_namespace: "{{ ansible_operator_meta.namespace }}"
 
 # Size of backup PVC if created dynamically
-backup_storage_requirements: ''
+backup_storage_requirements: ""
 
 # Set no_log settings on certain tasks
-no_log: 'true'
+no_log: "false"
 
 # Variable to set when you want backups to be cleaned up when the CRD object is deleted
 clean_backup_on_delete: false
@@ -29,8 +29,7 @@ backup_resource_requirements:
     cpu: "25m"
     memory: "32Mi"
 # Allow additional parameters to be added to the pg_dump backup command
-pg_dump_suffix: ''
+pg_dump_suffix: ""
 
 # Maintain some of the recommended `app.kubernetes.io/*` labels on the resource (self)
 set_self_labels: true
-...
